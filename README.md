@@ -4,7 +4,7 @@ Este projeto utiliza o algoritmo de K-Nearest Neighbors (KNN) para classificaç�
 
 ## Estrutura do Projeto
 
-- **model**: O modelo de classificação KNeighborsClassifier é inicializado com 6 vizinhos mais próximos (`n_neighbors = 6`).
+- **model**: O modelo de classificação KNeighborsClassifier.
 - **X_train**: Conjunto de dados de treinamento.
 - **y_train**: Rótulos do conjunto de dados de treinamento.
 - **X_train_scaled**: Conjunto de dados de treinamento escalonado.
@@ -43,7 +43,7 @@ Este projeto utiliza o algoritmo de K-Nearest Neighbors (KNN) para classificaç�
 
 ## Resultados
 
-A escolha do "KNeighborsClassifier(n_neighbors = 6)" do "n_neighbors" igual a 6 foi devido a análise gráfico que mostrava que utilizando entre 1 e 9 o nível de acurácia era o melhor dentre os treinamentos. Usando o conjunto de dados que era escalonado e sem correlação de baixo nível.
+Obs.: A escolha do "KNeighborsClassifier(n_neighbors = 6)" do "n_neighbors" igual a 6 foi devido a análise gráfico que mostrava que utilizando entre 1 e 9 o nível de acurácia era o melhor dentre os treinamentos. Usando o conjunto de dados que era escalonado e sem correlação de baixo nível.
 
 Após a execução do código, o modelo imprime a precisão do modelo e um relatório de classificação com as métricas de desempenho como precisão, recall e F1-score.
 
