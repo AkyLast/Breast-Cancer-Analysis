@@ -1,72 +1,69 @@
-# Projeto de Classificação com K-Nearest Neighbors (KNN)
+# Análise de Câncer de Mama com K-Nearest Neighbors (KNN)
 
-Este projeto utiliza o algoritmo de K-Nearest Neighbors (KNN) para classificação de dados. O modelo é treinado com um conjunto de dados escalado e avaliado em um conjunto de teste para medir a precisão e a qualidade da classificação.
+## Sobre o Projeto
 
-## Estrutura do Projeto
+Este projeto tem como objetivo realizar a análise de dados relacionados ao câncer de mama, utilizando técnicas de aprendizado de máquina para classificar os dados em benignos ou malignos. O algoritmo escolhido foi o K-Nearest Neighbors (KNN), que é conhecido por sua simplicidade e eficácia em problemas de classificação.
 
-- **model**: O modelo de classificação KNeighborsClassifier.
-- **X_train**: Conjunto de dados de treinamento.
-- **y_train**: Rótulos do conjunto de dados de treinamento.
-- **X_train_scaled**: Conjunto de dados de treinamento escalonado.
-- **X_trainNotLig**: Conjunto de dados de treino sem dados com baixo nível de correlação.
-- **y_train_notLig**: Rótulos do conjunto de dados de treinamento.
-- **accuracy_score**: Função utilizada para calcular a precisão do modelo com base nas previsões realizadas.
+## O Dataset
+
+Os dados utilizados neste projeto foram extraídos de exames relacionados ao câncer de mama. O conjunto de dados é composto por diversas características que descrevem propriedades físicas e químicas de células tumorais, como:
+
+- Raio médio
+- Textura média
+- Suavidade média
+- Simetria média
+- Dimensão fractal média
+
+O dataset pois possui uma distribuição balanceada entre as classes (benigno e maligno) e fornece informações claras sobre as características mais relevantes para o diagnóstico.
+
+## Etapas do Projeto
+
+### 1. Exploração de Dados
+
+Os dados foram analisados para identificar correlações entre as características e a classificação das células. Foi utilizada uma matriz de correlação para visualizar as relações mais significativas e remover atributos redundantes ou irrelevantes.
+
+### 2. Divisão dos Dados
+
+Os dados foram divididos em conjuntos de treinamento e teste utilizando a função `train_test_split`. Uma parte dos dados foi reservada para validação, garantindo a avaliação justa do modelo.
+
+### 3. Normalização e Escalonamento
+
+Para melhorar a performance do algoritmo KNN, as características foram normalizadas utilizando `StandardScaler`, garantindo que todas as variáveis tivessem a mesma escala e influências iguais no cálculo da distância.
+
+### 4. Treinamento do Modelo
+
+O modelo KNN foi treinado com diferentes valores de vizinhos (`k`) para identificar o parâmetro ótimo que maximiza a acurácia do modelo.
+
+### 5. Avaliação
+
+Foram calculadas métricas como:
+
+- Acurácia
+- Relatório de classificação (precisão, recall e F1-score)
+
+### 6. Visualização de Resultados
+
+Gráficos foram gerados para ilustrar a performance do modelo com diferentes valores de `k` e a influência do escalonamento e da remoção de atributos menos correlacionados.
+
+## Conclusão
+
+Este projeto demonstra como o uso de técnicas de pré-processamento, como normalização e seleção de atributos, pode melhorar significativamente a performance de algoritmos simples como o KNN. Além disso, destaca a importância de avaliar diferentes configurações para encontrar o modelo mais eficiente para os dados analisados.
+
+## Requisitos
+
+- Python 3.7+
+- Bibliotecas:
+  - pandas
+  - seaborn
+  - matplotlib
+  - scikit-learn
 
 ## Como Executar
 
-1. Certifique-se de ter as bibliotecas necessárias instaladas. Você pode instalar as dependências com o seguinte comando:
-    ```bash
-    pip install -r requirements.txt
-    ```
+1. Certifique-se de que todas as dependências estão instaladas.
+2. Execute o código em um ambiente como Jupyter Notebook ou diretamente em Python.
+3. Analise os resultados gerados e visualize os gráficos para interpretação dos dados.
 
-2. Execute o script para treinar o modelo e avaliar a precisão:
-    ```python
-    from sklearn.neighbors import KNeighborsClassifier
-    from sklearn.metrics import accuracy_score, classification_report
+## Conclusão
 
-    # Inicializa o modelo KNN com 6 vizinhos
-    model = KNeighborsClassifier(n_neighbors = 6)
-    
-    # Treinamento do modelo
-    model.fit(X_trainNotLig_scaled, y_train_notLig)
-    
-    # Previsões no conjunto de teste
-    y_pred = model.predict(X_testNotLig_scaled)
-    
-    # Calculando a precisão
-    accuracy = accuracy_score(y_test_notLig, y_pred) * 100
-    print(f"Acc: {accuracy:.2f}%")
-    
-    # Relatório de classificação
-    print("\n", classification_report(y_test_notLig, y_pred))
-    ```
-
-## Resultados
-
-Obs.: A escolha do "KNeighborsClassifier(n_neighbors = 6)" do "n_neighbors" igual a 6 foi devido a análise gráfico que mostrava que utilizando entre 1 e 9 o nível de acurácia era o melhor dentre os treinamentos. Usando o conjunto de dados que era escalonado e sem correlação de baixo nível.
-
-Após a execução do código, o modelo imprime a precisão do modelo e um relatório de classificação com as métricas de desempenho como precisão, recall e F1-score.
-
-Exemplo de saída:
-
-```
-Acc: 100.00%
-
-               precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00        43
-           1       1.00      1.00      1.00        71
-
-    accuracy                           1.00       114
-   macro avg       1.00      1.00      1.00       114
-weighted avg       1.00      1.00      1.00       114
-```
-
-
-## Dependências
-
-Este projeto requer as seguintes bibliotecas Python:
-
-- `scikit-learn`
-- `numpy`
-- `pandas`
+Este projeto demonstra como técnicas de aprendizado de máquina podem ser aplicadas em dados médicos para apoiar diagnósticos e decisões clínicas. A análise cuidadosa dos dados e o uso de métodos estatísticos robustos são essenciais para alcançar resultados confiáveis. O mesmo foi desenvolvido com foco em aplicações práticas de aprendizado de máquina na área de saúde.
