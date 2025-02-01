@@ -51,10 +51,9 @@ Este projeto demonstra como o uso de técnicas de pré-processamento, como norma
 
 ## Requisitos
 
-- Python 3.7+
+- Python 3.9+
 - Bibliotecas:
   - pandas
-  - seaborn
   - matplotlib
   - scikit-learn
 
